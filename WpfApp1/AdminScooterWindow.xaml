@@ -1,0 +1,66 @@
+﻿<Window x:Class="WpfApp1.AdminScooterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Администрирование самокатов" Height="500" Width="800" Background="#AAC"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Управление самокатами" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,20" Grid.Row="0"/>
+
+        <Grid Grid.Row="1" Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Модель:" Grid.Row="0" Grid.Column="0" Margin="0,5"/>
+            <TextBox x:Name="ModelBox" Grid.Row="0" Grid.Column="1" Margin="5"/>
+
+            <TextBlock Text="Адрес:" Grid.Row="0" Grid.Column="3" Margin="0,5"/>
+            <TextBox x:Name="AdressBox" Grid.Row="0" Grid.Column="4" Margin="5"/>
+
+            <TextBlock Text="Описание:" Grid.Row="1" Grid.Column="0" Margin="0,5"/>
+            <TextBox x:Name="OpisanieBox" Grid.Row="1" Grid.Column="1" Margin="5"/>
+
+            <TextBlock Text="Наличие:" Grid.Row="1" Grid.Column="3" Margin="0,5"/>
+            <TextBox x:Name="NalichieBox" Grid.Row="1" Grid.Column="4" Margin="5"/>
+
+            <TextBlock Text="Цена аренды:" Grid.Row="2" Grid.Column="0" Margin="0,5"/>
+            <TextBox x:Name="PriceBox" Grid.Row="2" Grid.Column="1" Margin="5"/>
+
+            <TextBlock Text="В аренде:" Grid.Row="2" Grid.Column="3" Margin="0,5"/>
+            <TextBox x:Name="ArenduetBox" Grid.Row="2" Grid.Column="4" Margin="5"/>
+            <StackPanel Grid.RowSpan="3" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Button Content="Добавить" Width="100" Margin="5" Click="AddButton_Click"/>
+                <Button Content="Сохранить" Width="100" Margin="5" Click="SaveButton_Click"/>
+                <Button Content="Удалить" Width="100"  Background="#FF3344" Click="DeleteButton_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <DataGrid x:Name="ScooterGrid" Grid.Row="2" AutoGenerateColumns="False" Margin="0,0,0,10" IsReadOnly="True" HeadersVisibility="Column" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="40"/>
+                <DataGridTextColumn Header="Модель" Binding="{Binding model}" Width="100"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding opisanie}" Width="150"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding price}" Width="70"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding adress_mest}" Width="100"/>
+                <DataGridTextColumn Header="Наличие" Binding="{Binding nalichie}" Width="80"/>
+                <DataGridTextColumn Header="В аренде" Binding="{Binding arenduet}" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

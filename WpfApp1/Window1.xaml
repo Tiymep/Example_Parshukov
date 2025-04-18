@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfApp1.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Администрирование аренды самокатов" Height="450" Width="800" Background="#AAC"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Управление пользователями системы проката." Height="30" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Label Content="Логин" Margin="48,46,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Пароль" Margin="48,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Роль пользователя" Margin="48,135,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Фамилия" Margin="48,180,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Имя" Margin="300,180,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Отчество" Margin="500,180,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <TextBox x:Name="TextBoxLogin" Height="33" Margin="170,46,349,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="TextBoxPassword" Height="33" Margin="170,90,349,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ComboBoxRole" Height="34" Margin="170,136,349,0" FontSize="14" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxSurname" Height="33" Margin="140,180,510,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxName" Height="33" Margin="350,180,310,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxPatronymic" Height="33" Margin="570,180,88,0" VerticalAlignment="Top"/>
+
+        <Button x:Name="ButtonAdd" Content="Добавить" Height="30" Margin="606,68,64,0" VerticalAlignment="Top" Click="ButtonAdd_Click"/>
+        <Button x:Name="ButtonRed" Content="Самокаты" Height="30" Margin="606,33,64,0" VerticalAlignment="Top" Click="ButtonRedScoot"/>
+        <Button x:Name="ButtonSave" Content="Сохранить" Height="30" Margin="606,103,64,0" VerticalAlignment="Top" Click="ButtonSave_Click"/>
+        <Button x:Name="ButtonDelete" Content="Удалить" Height="30" Margin="606,138,64,0" VerticalAlignment="Top"
+                Background="#FF3344" Foreground="White" Click="ButtonDelete_Click"/>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5,230,5,5">
+            <DataGrid Name="UserGrid" AutoGenerateColumns="False" Height="190" MaxWidth="750">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="*"/>
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding surname}" Width="*"/>
+                    <DataGridTextColumn Header="Имя" Binding="{Binding name}" Width="*"/>
+                    <DataGridTextColumn Header="Отчество" Binding="{Binding otchestvo}" Width="*"/>
+                    <DataGridTextColumn Header="Роль" Binding="{Binding role2}" Width="*"/>
+                    <DataGridTextColumn Header="Логин" Binding="{Binding login}" Width="*"/>
+                    <DataGridTextColumn Header="Пароль" Binding="{Binding password}" Width="*"/>
+                    <DataGridTextColumn Header="Попытки входа" Binding="{Binding count}" Width="*"/>
+                    <DataGridTextColumn Header="Активен" Binding="{Binding active}" Width="*"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>
